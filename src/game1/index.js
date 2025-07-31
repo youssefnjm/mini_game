@@ -171,11 +171,11 @@ const handleWarrior = () => {
     warrior.onCollideEnd("lancer", () => {
         warrior.unuse("color");
         warrior.hurt(1);
-        destroy(textt)
     })
-
+    
     warrior.onUpdate(() => {
         textt = add([text(`hp: ${warrior.hp()}`, { size: 18 }), pos(size.width / 2, 12)]);
+        destroy(textt)
     })
 };
 
@@ -206,6 +206,23 @@ const handleFloor = () => {
         color(91, 166, 117),
         body({  isStatic: true })
     ]);
+    //
+    add([
+        rect(barWidth, 15),
+        pos(60, (size.height - 150) / 2),
+        outline(3),
+        area(),
+        color(91, 166, 117),
+        body({  isStatic: true })
+    ]);
+    add([
+        rect(barWidth, 15),
+        pos(size.width - (barWidth) - 60, (size.height - 150) / 2),
+        outline(3),
+        area(),
+        color(91, 166, 117),
+        body({  isStatic: true })
+    ]);
     // 
     add([
         rect(barWidth, 15),
@@ -226,7 +243,15 @@ const handleFloor = () => {
     //
     add([
         rect(barWidth + 50, 15),
-        pos(size.width / 2 - ((barWidth + 50) / 2), (size.height - 150) / 2),
+        pos(size.width / 2 - ((barWidth + 50) / 2), (size.height - 150) / 2 - 60),
+        outline(3),
+        area(),
+        color(91, 166, 117),
+        body({  isStatic: true })
+    ]);
+    add([
+        rect(barWidth + 50, 15),
+        pos(size.width / 2 - ((barWidth + 50) / 2), (size.height - 150) / 2 + 60),
         outline(3),
         area(),
         color(91, 166, 117),
