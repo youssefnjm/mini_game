@@ -10,13 +10,31 @@ const setBackground = (r, g, b) => {
 }
 
 async function room1(roomData) {
-    setBackground(255, 0, 0);
-    const roomLayer = roomData.layers;
+    // setBackground(255, 0, 0);
+    console.log(roomData);
+    const roomLayers = roomData.layers;
+    const colliders = [];
+    roomLayers.forEach((layer) => {
+        if (layer.name === "colliders")
+            colliders.push(...layer.objects);
+    });
+    
+    const map = kaboom.add([
+        kaboom.pos(0,0),
+        kaboom.sprite("room1"),
+    ]);
+
 }
 
-async function room1(roomData) {
-    setBackground(255, 0, 0);
-    const roomLayer = roomData.layers;
+async function room2(roomData) {
+    // setBackground(255, 0, 0);
+    console.log(roomData);
+    const roomLayers = roomData.layers;
+
+    const map = kaboom.add([
+        kaboom.pos(0,0),
+        kaboom.sprite("rooom2")
+    ]);
 }
 
 function intro()
@@ -53,10 +71,8 @@ function intro()
     ]);
 
     kaboom.onKeyPress("space", () => {
-        kaboom.go("room1", { prevData: 0 });
+        kaboom.go("room2", { prevData: 0 });
     });
 }
 
-
-
-export { room1, intro }
+export { room1, room2 , intro };

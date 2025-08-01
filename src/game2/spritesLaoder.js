@@ -72,3 +72,6 @@ kaboom.loadSpriteAtlas(
         sliceY: 3
     }
 });
+
+kaboom.loadSprite("room1", new URL("./maps/room1.png", import.meta.url).href);
+kaboom.loadSprite("room2", new URL("./maps/room2.png", import.meta.url).href);
